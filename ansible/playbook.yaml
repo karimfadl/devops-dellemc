@@ -1,0 +1,12 @@
+---
+- name: Create A New Account on Dell Server and Install Tomcat
+  hosts: dell_server
+  user: karim
+  become: yes
+  connection: ssh
+  vars:
+   ansible_become_pass: Roro2501
+   ansible_ssh_port: 22
+  roles:
+   - System
+   - Tomcat 

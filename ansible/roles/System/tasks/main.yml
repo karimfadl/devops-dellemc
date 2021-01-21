@@ -1,0 +1,13 @@
+---
+- name: Add users | create users With Random Passwords, shell, home dirs
+  user: name={{ item.username }} shell=/bin/bash createhome=yes comment='create with ansible' password="{{ lookup('password', 'credentials/' + item.username + '/password.txt encrypt=md5_crypt') }}"
+  with_items: '{{users}}'
+
+- name: Sudoers | update sudoers file and validate
+  lineinfile: "dest=/etc/sudoers
+    insertafter=EOF
+    line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
+    regexp='^{{ item.username }} .*'
+    state=present"
+  when: '{{ item.use_sudo }} == True'
+  with_items: '{{users}}'
