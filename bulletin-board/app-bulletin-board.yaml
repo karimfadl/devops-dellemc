@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bulletin
+  namespace: demo
+  labels:
+    app: bulletin
+spec:
+  selector:
+    matchLabels:
+      app: bulletin
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: bulletin
+    spec:
+      containers:
+      - name: bulletin
+        image: karimfadl/bulletin-board:latest
+        ports:
+        - containerPort: 8080
+          name: bulletin-http
+        securityContext:
+          runAsUser: 1000
+          capabilities:
+            add:
+              - CHOWN
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
