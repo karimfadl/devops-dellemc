@@ -5,7 +5,7 @@
   become: yes
   connection: ssh
   vars:
-   ansible_become_pass: Roro2501
+   ansible_become_pass: dellemc
    ansible_ssh_port: 22
   roles:
    - System

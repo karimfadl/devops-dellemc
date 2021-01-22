@@ -60,11 +60,19 @@
   file:
     path: /usr/share/tomcat/app
     state: directory
+    owner: tomcat
+    group: tomcat
 
 - name: Deploy any Single HTML file
   template:
     src: hello.html
     dest: /usr/share/tomcat/app/hello.html
+
+- name: Add Root Dir to Tomcat Config file.
+  lineinfile:
+    path: /usr/share/tomcat/conf/server.xml
+    insertafter: 'unpackWARs="true" autoDeploy="true">'
+    line: '<Context docBase="/usr/share/tomcat/app" path="/static" />'
 
 - name: Start and enable tomcat
   service:
