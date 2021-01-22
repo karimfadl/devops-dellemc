@@ -7,7 +7,7 @@ Create Virtual Machine Based on Centos 7 and Create a new Linux User which you w
 ### 2.Clone The Repo and Modify Some Vars.
 ```
 git clone https://github.com/karimfadl/devops-dellemc.git
-cd ansible
+cd ansible-assignment
 ```
 You Can Change Some Vars based on your env like : Usernames of Linux Users, Tomcat Credentials through group_vars/all file.
 Also Replace The IP in hosts file to Your Centos 7 VM IP.
