@@ -37,10 +37,8 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                agent {
-                  kubernetes {
-                    yamlFile 'k8s-bulletin-board/app-bulletin-board.yaml'
-                  }
+                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://70a0b49f-9cf4-42d3-8ad1-714846f3cdc7.k8s.ondigitalocean.com']) {
+                sh 'kubectl apply -f k8s-bulletin-board/app-bulletin-board.yaml'
                 }
             }
         }
