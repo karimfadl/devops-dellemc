@@ -20,7 +20,7 @@ spec:
       containers:
       - name: bulletin
 #        image: karimfadl/bulletin-board:latest
-        image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
+        image: karimfadl/bulletin-board:{{BUILD_NUMBER}}
         ports:
         - containerPort: 8080
           name: bulletin-http

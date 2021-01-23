@@ -38,7 +38,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 withKubeConfig([credentialsId: 'mykubeconfig']) {
-                sh 'kubectl apply -f k8s-bulletin-board/app-bulletin-board.yaml'
+                sh 'cat k8s-bulletin-board/app-bulletin-board.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | kubectl apply -f -'
                 }
             }
         }
