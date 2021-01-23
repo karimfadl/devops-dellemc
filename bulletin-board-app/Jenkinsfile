@@ -41,7 +41,7 @@ pipeline {
                 milestone(1)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
-                    configs: '../k8s-bulletin-board/app-bulletin-board.yaml',
+                    configs: 'k8s-bulletin-board/app-bulletin-board.yaml',
                     enableConfigSubstitution: true
                 )
             }
