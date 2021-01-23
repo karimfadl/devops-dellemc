@@ -10,8 +10,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh "cd bulletin-board-app"
-                    app = docker.build(DOCKER_IMAGE_NAME) 
+                    app = docker.build(DOCKER_IMAGE_NAME, "./bulletin-board-app/Dockerfile") 
                     app.inside {
                         sh 'echo Hello, Node Bulletin Board App!'
                     }
