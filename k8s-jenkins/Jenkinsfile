@@ -37,11 +37,11 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'k8s-bulletin-board/app-bulletin-board.yaml',
-                    enableConfigSubstitution: true
-                )
+                agent {
+                  kubernetes {
+                    yamlFile 'k8s-bulletin-board/app-bulletin-board.yaml'
+                  }
+                }
             }
         }
     }
