@@ -37,7 +37,7 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                withKubeConfig([credentialsId: 'kubeconfig']) {
+                withKubeConfig([credentialsId: 'mykubeconfig']) {
                 sh 'kubectl apply -f k8s-bulletin-board/app-bulletin-board.yaml'
                 }
             }
