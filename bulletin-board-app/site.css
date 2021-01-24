@@ -9,7 +9,7 @@
 
 body {
     padding-bottom: 20px;
-    background-color: rgb(98, 41, 145);
+    background-color: rgba(0, 0, 0,.1);
     color: #FFF;
     font-size: 20px;
 }
@@ -40,7 +40,7 @@ textarea {
 
 .jumbotron {
     font-family: 'Geomanist Book';
-    background-color: #380a66;
+    background-color: #366ec3;
 }
 
 h1, h2 {
