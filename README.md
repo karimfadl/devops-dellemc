@@ -19,7 +19,7 @@ Note: You Can establish your Jenkins Image through Dockerfile inside : "k8s-jenk
 ### 3.Integrate Jenkins With GitHub, Docker and K8S Cluster.
 After Jenkins Installation, We need to Install Some Jenkins Plugins and integrate Jenkins With GitHub, Docker and K8S through "Manage Credentials" Section.
 
--For Jenkins Plugins we need to install "Kubernetes Cli" and "Blue Ocean".
+-For Jenkins Plugins we need to install "Docker" ,"Kubernetes Cli" and "Blue Ocean".
 
 Access "Manage Credentials" > "Jenkins" and Configure the following Secrets. 
 -For GitHub >> "Username with password Type" add your GitHub user and password with ID called "github_token".
